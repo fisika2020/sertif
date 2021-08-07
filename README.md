@@ -10,26 +10,17 @@ memakan waktu yang panjang. Kita memiliki list nama mahasiswa yang lengkap,
 dan dari situ kita bisa memilih secara otomatis, mana saja yang dari Fisika
 2020.
 
-#### GNU/Linux
+#### Python 3 (Cross-Platform)
 
-Ekstrak file zip, pindahkan `list.txt` ke dalam folder ekstraksi tersebut.
-Setelah itu, jalankan perintah ini di dalam folder ekstraksi dengan `cd
-<nama folder>`.
-
-```bash
-mkdir fisika && sed 's/^ *//' < list.txt | xargs -d '\n' mv -t fisika/
+Saya asumsikan pada sistem anda sudah terinstall `python` versi terbaru, dan anda sudah sedikit mengerti tentang GitHub.
+1. Download file [script](./filter.py) dan [list](./list.txt) dari repository ini. Anda juga bisa menggunakan file list yang lain. Format dalam list seluruhnya ditulis dengan huruf kecil, [contoh](./list.txt).
+2. Download pula SELURUH FILE SERTIFIKAT dari link Google Drive/Cloud Provider lain dengan format `.zip`. Lalu ekstrak pada suatu folder.
+3. Salin file [script](./filter.py) dan [list](./list.txt) ke folder tempat ekstraksi tadi.
+4. Jika file sertifikat berformat PDF, jalankan script dengan menggunakan perintah
 ```
-
-Script one-line ini bertujuan untuk
-1. `mkdir fisika` - Membuat folder dengan nama `fisika`
-2. `sed 's/^ *//' < list.txt` - membaca list nama mahasiswa
-3. Output dari no.2 dimasukkan ke command GNU mv, `mv -t fisika/` di mana
-   ini akan memasukkan seluruh file dengan nama yang sama ke dalam folder
-   baru yang dibuat pada perintah no.1
-
-#### Windows Powershell
-
-YNTKTS
+python filter.py -r list.txt -f pdf
+```
+5. Jika formatnya lain, cukup ganti bagian `pdf` pada perintah di atas dengan format file yang sesuai (misal: png atau jpg)
 
 ## Something Goes Wrong?
 

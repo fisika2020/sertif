@@ -52,17 +52,20 @@ else:
 
 for name in fillist:
     if name in reference:
-        try:
-            __src = name + f".{filetype}"
-            dest = os.path.join(newpath, __src)
-            shutil.copy(__src, dest)
-        except:
-            namecap = name.capitalize()
-            if namecap in lists:
-                __src = namecap + f".{filetype}"
-                dest = os.path.join(newpath, __src)
-                shutil.copy(__src, dest)
-            else:
-                __src = name.upper() + f".{filetype}"
-                dest = os.path.join(newpath, __src)
-                shutil.copy(__src, dest)
+        namelower = name + f".{filetype}"
+        nametitle = name.title() + f".{filetype}"
+        namecap = name.capitalize() + f".{filetype}"
+        nameupper = name.upper() + f".{filetype}"
+
+        if namelower in lists:
+            dest = os.path.join(newpath, namelower)
+            shutil.copy(namelower, dest)
+        elif nametitle in lists:
+            dest = os.path.join(newpath, nametitle)
+            shutil.copy(nametitle, dest)
+        elif namecap in lists:
+            dest = os.path.join(newpath, namecap)
+            shutil.copy(namecap, dest)
+        elif nameupper in lists:
+            dest = os.path.join(newpath, nameupper)
+            shutil.copy(nameupper, dest)
